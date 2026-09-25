@@ -6,29 +6,14 @@ import { Syringe, Droplets, Sparkles, Clock, ArrowRight, Sparkle, ShieldCheck } 
 // Fondo de Video a Pantalla Completa: Toma toda la sección en celulares y desktop con zoom calibrado
 const FullscreenTreatmentsBackground = memo(function FullscreenTreatmentsBackground() {
   return (
-    <div className="absolute top-0 left-0 right-0 h-[48vh] sm:h-[55vh] lg:h-full z-0 overflow-hidden pointer-events-none bg-[#111]">
-      {/* Capa Base Anti-Parpadeo (Poster Fotograma 0) */}
-      <img
-        src="/evydosspa_poster.jpg"
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover object-center lg:object-[center_right] select-none pointer-events-none"
-      />
-
-      {/* Capa Animada con Aceleración por Hardware */}
+    <div className="absolute top-0 left-0 right-0 h-[48vh] sm:h-[55vh] lg:h-full z-0 overflow-hidden pointer-events-none bg-[#ECE6DD]">
+      {/* WebP animado de 10 segundos sin poster estático debajo */}
       <img
         src="/evydosspa.webp"
         alt="EvyFace Protocolos de Tratamiento"
         loading="eager"
-        decoding="sync"
+        decoding="async"
         className="relative w-full h-full object-cover object-center lg:object-[center_right] select-none pointer-events-none opacity-100"
-        style={{
-          willChange: "transform",
-          transform: "translateZ(0)",
-          WebkitTransform: "translateZ(0)",
-          backfaceVisibility: "hidden",
-          WebkitBackfaceVisibility: "hidden",
-        }}
       />
       {/* En Celular: Fusión suave para que el video tome la sección, se vea el rostro completo y se integre al fondo */}
       <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-[#F6F3ED]/80 via-transparent to-[#F6F3ED] pointer-events-none" />

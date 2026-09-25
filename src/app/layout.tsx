@@ -17,9 +17,18 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL("https://evyface.vercel.app"),
   title: "Evy Face · Centro Terapéutico y Estético | Armonización Facial & Rejuvenecimiento Celular",
   description: "Fusión de ciencia estética y bioseguridad clínica. Especialistas en Toxina Botulínica, Ácido Hialurónico y Sueroterapia de Vitamina C. Contamos con profesionales certificados.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   keywords: [
     "Evy Face",
     "Armonización Facial",
@@ -55,6 +64,9 @@ export default function RootLayout({
       lang="es"
       className={`${cormorant.variable} ${plusJakarta.variable} scroll-smooth antialiased`}
     >
+      <head>
+        <link rel="preload" as="image" href="/evyspa_opt.webp" type="image/webp" />
+      </head>
       <body className="min-h-screen bg-[#FAF9F6] text-[#1A1A1A] selection:bg-[#D4AF37]/20 selection:text-[#1A1A1A]">
         {children}
       </body>

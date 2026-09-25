@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Preloader from "@/components/Preloader";
 import Navbar from "@/components/Navbar";
 import InteractiveParticles from "@/components/InteractiveParticles";
 import HeroSection from "@/components/HeroSection";
@@ -27,6 +28,9 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen bg-[#F6F3ED] text-[#1A1A1A] overflow-hidden">
+      {/* Pantalla de Carga de Bienvenida EvyFace con Precarga de WebP */}
+      <Preloader />
+
       {/* Partículas y Halos Luminosos en el Fondo */}
       <InteractiveParticles />
 

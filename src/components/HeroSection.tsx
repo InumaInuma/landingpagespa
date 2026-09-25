@@ -47,28 +47,13 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
           - En Móvil: Zoom alejado en la parte superior, dejando el rostro despejado.
           ========================================================================= */}
       <div className="absolute top-0 right-0 left-0 w-full h-[52vh] sm:h-[60vh] lg:h-full z-0 overflow-hidden pointer-events-none bg-[#ECE6DD]">
-        {/* Capa Base Anti-Parpadeo (Poster Fotograma 0) */}
-        <img
-          src="/evyspa_poster.jpg"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover object-[78%_18%] lg:object-[center_right] select-none pointer-events-none"
-        />
-
-        {/* Capa Animada con Aceleración por Hardware */}
+        {/* WebP animado de reproducción continua sin ninguna imagen estática debajo */}
         <img
           src="/evyspa_opt.webp"
           alt="EvyFace · Armonización Facial y Rejuvenecimiento Celular"
           loading="eager"
-          decoding="sync"
+          decoding="async"
           className="relative w-full h-full object-cover object-[78%_18%] lg:object-[center_right] select-none pointer-events-none"
-          style={{
-            willChange: "transform",
-            transform: "translateZ(0)",
-            WebkitTransform: "translateZ(0)",
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
-          }}
         />
 
         {/* Gradiente en Móvil: Transición suave hacia abajo sin tapar ni nublar el rostro */}
