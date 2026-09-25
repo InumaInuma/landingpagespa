@@ -98,7 +98,7 @@ export default function AppointmentModal({
             <select
               value={treatment}
               onChange={(e) => setTreatment(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl border border-black/15 bg-[#FAF9F6] text-xs sm:text-sm font-medium focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all text-[#1A1A1A]"
+              className="w-full px-4 py-2.5 rounded-xl border border-black/15 bg-[#FAF9F6] text-base sm:text-sm font-medium focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all text-[#1A1A1A]"
             >
               {treatmentsList.map((item, idx) => (
                 <option key={idx} value={item} className="text-[#1A1A1A]">
@@ -121,7 +121,7 @@ export default function AppointmentModal({
                 placeholder="Ej. Carolina Silva"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl border border-black/15 bg-[#FAF9F6] text-xs sm:text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all"
+                className="w-full px-4 py-2.5 rounded-xl border border-black/15 bg-[#FAF9F6] text-base sm:text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all"
               />
             </div>
 
@@ -135,7 +135,7 @@ export default function AppointmentModal({
                 placeholder="+51 987 654 321"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl border border-black/15 bg-[#FAF9F6] text-xs sm:text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all"
+                className="w-full px-4 py-2.5 rounded-xl border border-black/15 bg-[#FAF9F6] text-base sm:text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all"
               />
             </div>
           </div>
@@ -151,7 +151,7 @@ export default function AppointmentModal({
                 type="date"
                 value={preferredDate}
                 onChange={(e) => setPreferredDate(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl border border-black/15 bg-[#FAF9F6] text-xs sm:text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all"
+                className="w-full px-4 py-2.5 rounded-xl border border-black/15 bg-[#FAF9F6] text-base sm:text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all"
               />
             </div>
 
@@ -163,7 +163,7 @@ export default function AppointmentModal({
               <select
                 value={preferredTime}
                 onChange={(e) => setPreferredTime(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl border border-black/15 bg-[#FAF9F6] text-xs sm:text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all text-[#1A1A1A]"
+                className="w-full px-4 py-2.5 rounded-xl border border-black/15 bg-[#FAF9F6] text-base sm:text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all text-[#1A1A1A]"
               >
                 <option value="Mañana (9:00 AM - 1:00 PM)">Mañana (9:00 AM - 1:00 PM)</option>
                 <option value="Tarde (2:00 PM - 5:00 PM)">Tarde (2:00 PM - 5:00 PM)</option>
@@ -183,7 +183,7 @@ export default function AppointmentModal({
               placeholder="Ej. Deseo evaluar armonización de labios y consulta sobre sueroterapia para cansancio."
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl border border-black/15 bg-[#FAF9F6] text-xs sm:text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all resize-none"
+              className="w-full px-4 py-2.5 rounded-xl border border-black/15 bg-[#FAF9F6] text-base sm:text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all resize-none"
             />
           </div>
 

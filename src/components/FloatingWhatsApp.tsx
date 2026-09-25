@@ -8,10 +8,10 @@ export default function FloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end">
       {/* Popover Bubble */}
       {isOpen && (
-        <div className="mb-3 w-72 rounded-2xl p-4 bg-white/95 backdrop-blur-xl border border-[#D4AF37]/35 shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-300">
+        <div className="mb-3 w-[calc(100vw-2.5rem)] max-w-xs sm:w-72 rounded-2xl p-4 bg-white/95 backdrop-blur-xl border border-[#D4AF37]/35 shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-300">
           <div className="flex items-start justify-between pb-2 border-b border-black/5">
             <div className="flex items-center gap-2">
               <div className="relative w-8 h-8 rounded-full overflow-hidden bg-white border border-[#D4AF37]">
@@ -24,7 +24,7 @@ export default function FloatingWhatsApp() {
                 />
               </div>
               <div>
-                <p className="text-xs font-bold text-[#1A1A1A]">EvyFace Atención Médica</p>
+                <p className="text-xs font-bold text-[#1A1A1A]">EvyFace Atención Personalizada</p>
                 <p className="text-[10px] text-emerald-600 font-medium flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   En línea ahora

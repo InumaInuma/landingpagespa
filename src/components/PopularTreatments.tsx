@@ -3,16 +3,16 @@
 import { memo } from "react";
 import { Syringe, Droplets, Sparkles, Clock, ArrowRight, Sparkle, ShieldCheck } from "lucide-react";
 
-// Fondo de Video a Pantalla Completa para la Sección de Tratamientos (Sin marcos ni cajas)
+// Fondo de Video a Pantalla Completa para Pantallas Grandes (Desktop)
 const FullscreenTreatmentsBackground = memo(function FullscreenTreatmentsBackground() {
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <div className="hidden lg:block absolute inset-0 z-0 overflow-hidden pointer-events-none">
       <img
         src="/evydosspa.webp"
         alt="EvyFace Protocolos de Tratamiento"
         loading="eager"
         decoding="sync"
-        className="w-full h-full object-cover object-[center_right] lg:object-right select-none pointer-events-none opacity-100"
+        className="w-full h-full object-cover object-[center_right] select-none pointer-events-none opacity-100"
         style={{
           willChange: "transform",
           transform: "translate3d(0, 0, 0)",
@@ -79,10 +79,10 @@ export default function PopularTreatments({ onSelectTreatment }: PopularTreatmen
   return (
     <section 
       id="tratamientos" 
-      className="relative min-h-screen py-20 lg:py-28 flex items-center overflow-hidden bg-[#F6F3ED] border-t border-[#D4AF37]/25 scroll-mt-16"
+      className="relative min-h-screen py-16 sm:py-20 lg:py-28 flex items-center overflow-hidden bg-[#F6F3ED] border-t border-[#D4AF37]/25 scroll-mt-16"
     >
       {/* =========================================================================
-          FONDO A PANTALLA COMPLETA: EVYDOSSPA.WEBP TOMA TODA LA SECCIÓN
+          FONDO A PANTALLA COMPLETA EN DESKTOP: EVYDOSSPA.WEBP TOMA TODA LA SECCIÓN
           ========================================================================= */}
       <FullscreenTreatmentsBackground />
 
@@ -92,10 +92,10 @@ export default function PopularTreatments({ onSelectTreatment }: PopularTreatmen
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
         
         {/* Cabecera de Sección */}
-        <div className="max-w-xl text-left space-y-3 mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-[#D4AF37]/45 text-[#8A795D] text-[11px] font-bold uppercase tracking-wider backdrop-blur-sm">
+        <div className="max-w-xl text-left space-y-3 mb-6 sm:mb-8 lg:mb-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-[#D4AF37]/45 text-[#8A795D] text-[10px] sm:text-[11px] font-bold uppercase tracking-wider backdrop-blur-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>Medicina Estética & Nutrición Celular</span>
+            <span>Medicina Estética &amp; Nutrición Celular</span>
           </div>
 
           <h2 className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1A1A1A] leading-tight">
@@ -108,8 +108,32 @@ export default function PopularTreatments({ onSelectTreatment }: PopularTreatmen
           </p>
         </div>
 
-        {/* Grilla Directa de los 4 Servicios Principales (UX Clara y Scannable) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* =====================================================================
+            VIDEOPLAYER DESTACADO EN CELULARES: EVYDOSSPA.WEBP 100% NÍTIDO Y VISIBLE
+            ===================================================================== */}
+        <div className="block lg:hidden relative w-full aspect-[16/10] sm:aspect-video rounded-3xl overflow-hidden shadow-2xl border border-[#D4AF37]/40 mb-8 bg-stone-900">
+          <img
+            src="/evydosspa.webp"
+            alt="EvyFace Procedimientos Clínicos y Estéticos"
+            loading="eager"
+            decoding="sync"
+            className="w-full h-full object-cover object-center select-none pointer-events-none"
+            style={{
+              willChange: "transform",
+              transform: "translate3d(0, 0, 0)",
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] text-white/95 bg-black/50 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20">
+            <span className="font-medium tracking-wide">Protocolos en Vivo &amp; Resultados</span>
+            <span className="text-[#F3E5AB] font-bold">EvyFace</span>
+          </div>
+        </div>
+
+        {/* Grilla Directa de los 4 Servicios Principales (Adaptada a Celulares) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {coreServices.map((service) => {
             const Icon = service.icon;
             return (

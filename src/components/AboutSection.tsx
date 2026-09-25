@@ -44,9 +44,9 @@ export default function AboutSection({ onOpenBooking }: AboutSectionProps) {
   return (
     <section id="nosotros" className="relative bg-[#1A1A1A] text-white overflow-hidden scroll-mt-16">
 
-      {/* Upper About Grid (Exactamente como en la referencia LUXE) */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      {/* Upper About Grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
 
           {/* Left Text Block */}
           <div className="lg:col-span-6 space-y-6">
@@ -127,24 +127,25 @@ export default function AboutSection({ onOpenBooking }: AboutSectionProps) {
         </div>
       </div>
 
-      {/* Bottom Counter Bar (Inspirado en la barra verde oscura de LUXE) */}
+      {/* Bottom Counter Bar */}
       <div className="bg-[#121B17] border-t border-[#D4AF37]/30 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 text-center">
             {stats.map((item, index) => {
               const Icon = item.icon;
+              const isLastOnMobile = index === 4;
               return (
-                <div key={index} className="space-y-1 px-2">
+                <div key={index} className={`space-y-1 px-2 ${isLastOnMobile ? "col-span-2 sm:col-span-1" : ""}`}>
                   <div className="flex items-center justify-center text-[#D4AF37] mb-1">
                     <Icon className="w-5 h-5" />
                   </div>
                   <p className="font-editorial text-2xl sm:text-3xl font-bold text-white">
                     {item.value}
                   </p>
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#D4AF37]">
+                  <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#D4AF37]">
                     {item.label}
                   </p>
-                  <p className="text-[10px] text-stone-400">
+                  <p className="text-[9.5px] sm:text-[10px] text-stone-400">
                     {item.sub}
                   </p>
                 </div>
