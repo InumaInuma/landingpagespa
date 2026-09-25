@@ -7,14 +7,18 @@ import { Syringe, Droplets, Sparkles, Clock, ArrowRight, Sparkle, ShieldCheck } 
 const FullscreenTreatmentsBackground = memo(function FullscreenTreatmentsBackground() {
   return (
     <div className="absolute top-0 left-0 right-0 h-[48vh] sm:h-[55vh] lg:h-full z-0 overflow-hidden pointer-events-none bg-[#ECE6DD]">
-      {/* WebP animado de 10 segundos sin poster estático debajo */}
-      <img
-        src="/evydosspa.webp"
-        alt="EvyFace Protocolos de Tratamiento"
-        loading="eager"
-        decoding="async"
-        className="relative w-full h-full object-cover object-center lg:object-[center_right] select-none pointer-events-none opacity-100"
-      />
+      {/* WebP responsivo: versión móvil (3.3MB) y versión desktop (12MB) */}
+      <picture className="w-full h-full">
+        <source media="(max-width: 768px)" srcSet="/evydosspa_mobile.webp" type="image/webp" />
+        <source media="(min-width: 769px)" srcSet="/evydosspa.webp" type="image/webp" />
+        <img
+          src="/evydosspa.webp"
+          alt="EvyFace Protocolos de Tratamiento"
+          loading="eager"
+          decoding="async"
+          className="relative w-full h-full object-cover object-center lg:object-[center_right] select-none pointer-events-none opacity-100"
+        />
+      </picture>
       {/* En Celular: Fusión suave para que el video tome la sección, se vea el rostro completo y se integre al fondo */}
       <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-[#F6F3ED]/80 via-transparent to-[#F6F3ED] pointer-events-none" />
 

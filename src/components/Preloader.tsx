@@ -9,13 +9,14 @@ export default function Preloader() {
   const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
-    // Iniciar precarga del WebP en memoria del navegador
+    // Iniciar precarga del WebP correspondiente en memoria del navegador
     if (typeof window !== "undefined") {
+      const isMobile = window.innerWidth < 768;
       const img1 = new window.Image();
-      img1.src = "/evyspa_opt.webp";
+      img1.src = isMobile ? "/evyspa_mobile.webp" : "/evyspa_opt.webp";
 
       const img2 = new window.Image();
-      img2.src = "/evydosspa.webp";
+      img2.src = isMobile ? "/evydosspa_mobile.webp" : "/evydosspa.webp";
     }
 
     // Progreso suave y de lujo de 0 a 100%

@@ -25,6 +25,10 @@ export default function InteractiveParticles() {
   });
 
   useEffect(() => {
+    // En dispositivos móviles no se ejecuta el canvas de partículas continuo
+    // para reservar el 100% de memoria y GPU del celular a la reproducción fluida de los WebP
+    if (window.innerWidth < 768) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -35,7 +39,7 @@ export default function InteractiveParticles() {
     let height = (canvas.height = window.innerHeight);
 
     const handleResize = () => {
-      if (!canvas) return;
+      if (!canvas || window.innerWidth < 768) return;
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
       initParticles();

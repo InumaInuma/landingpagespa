@@ -47,14 +47,18 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
           - En Móvil: Zoom alejado en la parte superior, dejando el rostro despejado.
           ========================================================================= */}
       <div className="absolute top-0 right-0 left-0 w-full h-[52vh] sm:h-[60vh] lg:h-full z-0 overflow-hidden pointer-events-none bg-[#ECE6DD]">
-        {/* WebP animado de reproducción continua sin ninguna imagen estática debajo */}
-        <img
-          src="/evyspa_opt.webp"
-          alt="EvyFace · Armonización Facial y Rejuvenecimiento Celular"
-          loading="eager"
-          decoding="async"
-          className="relative w-full h-full object-cover object-[78%_18%] lg:object-[center_right] select-none pointer-events-none"
-        />
+        {/* WebP responsivo: Versión móvil optimizada (3.5MB) en celular para eliminar tirones y versión desktop (10MB) en PC */}
+        <picture className="w-full h-full">
+          <source media="(max-width: 768px)" srcSet="/evyspa_mobile.webp" type="image/webp" />
+          <source media="(min-width: 769px)" srcSet="/evyspa_opt.webp" type="image/webp" />
+          <img
+            src="/evyspa_opt.webp"
+            alt="EvyFace · Armonización Facial y Rejuvenecimiento Celular"
+            loading="eager"
+            decoding="async"
+            className="relative w-full h-full object-cover object-[78%_18%] lg:object-[center_right] select-none pointer-events-none"
+          />
+        </picture>
 
         {/* Gradiente en Móvil: Transición suave hacia abajo sin tapar ni nublar el rostro */}
         <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-transparent via-[#F6F3ED]/15 to-[#F6F3ED] pointer-events-none" />
