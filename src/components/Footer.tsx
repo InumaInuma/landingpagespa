@@ -56,7 +56,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
               <span>Agendar Valoración</span>
             </button>
             <a
-              href="https://wa.me/51999999999?text=Hola%20EvyFace,%20quiero%20agendar%20una%20cita%20con%20sus%20profesionales."
+              href="https://wa.me/51956488490?text=Hola%20EvyFace,%20quiero%20agendar%20una%20cita%20con%20sus%20profesionales."
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto px-6 py-4 rounded-full text-xs uppercase tracking-wider font-semibold bg-[#25D366] hover:bg-[#20ba5a] text-white shadow-lg flex items-center justify-center gap-2 transition-transform hover:scale-105"
@@ -113,7 +113,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
                 </svg>
               </a>
               <a
-                href="https://wa.me/51999999999"
+                href="https://wa.me/51956488490"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#25D366] flex items-center justify-center text-white transition-all border border-white/10 hover:scale-110"
@@ -193,7 +193,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
                 <Phone className="w-5 h-5 text-[#D4AF37] flex-shrink-0" />
                 <div>
                   <p className="font-semibold text-white">Central de Citas</p>
-                  <p className="text-stone-300 text-xs">+51 999 999 999 · Atención Asistencial</p>
+                  <p className="text-stone-300 text-xs">+51 956 488 490 · Atención Asistencial</p>
                 </div>
               </div>
             </div>

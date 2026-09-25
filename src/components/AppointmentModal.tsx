@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X, Calendar, User, Phone, CheckCircle2, MessageCircle, Clock, ShieldCheck, Sparkles } from "lucide-react";
 
 interface AppointmentModalProps {
@@ -14,12 +14,32 @@ export default function AppointmentModal({
   onClose,
   initialTreatment = "Valoración Médica Integral",
 }: AppointmentModalProps) {
+  const treatmentsList = [
+    "Valoración Médica Integral",
+    "Toxina Botulínica (Bótox)",
+    "Ácido Hialurónico (Labios, Ojeras, Surcos)",
+    "Faciales Médicos & Hydrafacial",
+    "Sueroterapia de Vitamina C",
+    "Armonización Facial Completa",
+  ];
+
   const [treatment, setTreatment] = useState(initialTreatment);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [preferredDate, setPreferredDate] = useState("");
   const [preferredTime, setPreferredTime] = useState("Mañana (9:00 AM - 1:00 PM)");
   const [notes, setNotes] = useState("");
+
+  useEffect(() => {
+    if (initialTreatment) {
+      const match = treatmentsList.find(
+        (t) =>
+          t.toLowerCase().includes(initialTreatment.toLowerCase()) ||
+          initialTreatment.toLowerCase().includes(t.toLowerCase())
+      );
+      setTreatment(match || initialTreatment || treatmentsList[0]);
+    }
+  }, [initialTreatment, isOpen]);
 
   if (!isOpen) return null;
 
@@ -39,22 +59,11 @@ export default function AppointmentModal({
       `Agradezco la atención del equipo de profesionales de EvyFace para confirmar disponibilidad.`
     );
 
-    // Official EvyFace WhatsApp link
-    const waUrl = `https://wa.me/51999999999?text=${message}`;
+    // Enlace oficial de WhatsApp de EvyFace: +51 956 488 490
+    const waUrl = `https://wa.me/51956488490?text=${message}`;
     window.open(waUrl, "_blank");
     onClose();
   };
-
-  const treatmentsList = [
-    "Valoración Médica Integral (Profesionales Especializados)",
-    "Área Médica: Toxina Botulínica (Bótox)",
-    "Área Médica: Ácido Hialurónico (Labios / Ojeras / Surcos)",
-    "Área Médica: Armonización Facial & Contornos",
-    "Área Médica: Bioestimuladores de Colágeno (Profhilo)",
-    "Área Celular: Sueroterapia Multivitamínica IV",
-    "Área Celular: Megadosis Vitamina C Endovenosa",
-    "Protocolo Combinado: Armonización Facial + Sueroterapia Celular",
-  ];
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-md animate-in fade-in duration-200">

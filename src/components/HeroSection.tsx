@@ -1,48 +1,99 @@
 "use client";
 
+import { Stethoscope, ShieldCheck, UserCheck, Sparkles, Heart } from "lucide-react";
+
 interface HeroSectionProps {
   onOpenBooking: () => void;
 }
 
 export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
+  const pillars = [
+    {
+      icon: Stethoscope,
+      title: "PROFESIONALES CERTIFICADOS",
+      desc: "Equipo especializado en inyectables y armonización facial",
+    },
+    {
+      icon: ShieldCheck,
+      title: "TECNOLOGÍA & BIOSEGURIDAD",
+      desc: "Viales 100% sellados abiertos en tu presencia",
+    },
+    {
+      icon: UserCheck,
+      title: "TRATAMIENTO PERSONALIZADO",
+      desc: "Evaluación anatómica a la medida de tu rostro",
+    },
+    {
+      icon: Sparkles,
+      title: "RESULTADOS NATURALES",
+      desc: "Realza tu belleza respetando tu mímica facial",
+    },
+    {
+      icon: Heart,
+      title: "CONFORT & ATENCIÓN ÉLITE",
+      desc: "Tu bienestar, privacidad y seguridad son prioridad",
+    },
+  ];
+
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] lg:min-h-[94vh] flex items-center overflow-hidden bg-[#F6F3ED] pt-20 sm:pt-24 lg:pt-0"
+      className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-[#F6F3ED] pt-24 sm:pt-28 lg:pt-32"
     >
       {/* =========================================================================
-          FONDO DESKTOP: EVYSPA_OPT.WEBP EN EL LADO DERECHO (SE APRECIA EN PANTALLAS GRANDES)
+          FONDO INMERSIVO: EVYSPA_OPT.WEBP EN EL FONDO DE LA SECCIÓN
+          - Ocupa el ancho completo (w-full inset-0) para eliminar cualquier raya o corte recto.
+          - En Web: Difuminado / sombreado suave y gradual (feathered) entre el texto y el video.
+          - En Móvil: Zoom alejado en la parte superior, dejando el rostro despejado.
           ========================================================================= */}
-      <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[68%] xl:w-[72%] h-full z-0 overflow-hidden pointer-events-none">
+      <div className="absolute top-0 right-0 left-0 w-full h-[52vh] sm:h-[60vh] lg:h-full z-0 overflow-hidden pointer-events-none bg-[#ECE6DD]">
+        {/* Capa Base Anti-Parpadeo (Poster Fotograma 0) */}
+        <img
+          src="/evyspa_poster.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-[78%_18%] lg:object-[center_right] select-none pointer-events-none"
+        />
+
+        {/* Capa Animada con Aceleración por Hardware */}
         <img
           src="/evyspa_opt.webp"
           alt="EvyFace · Armonización Facial y Rejuvenecimiento Celular"
           loading="eager"
           decoding="sync"
-          className="w-full h-full object-cover object-[center_right] select-none pointer-events-none"
+          className="relative w-full h-full object-cover object-[78%_18%] lg:object-[center_right] select-none pointer-events-none"
           style={{
             willChange: "transform",
-            transform: "translate3d(0, 0, 0)",
+            transform: "translateZ(0)",
+            WebkitTransform: "translateZ(0)",
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
           }}
         />
 
-        {/* Fusión suave únicamente en el extremo izquierdo para no opacar el video */}
-        <div className="absolute inset-y-0 left-0 w-24 xl:w-44 bg-gradient-to-r from-[#F6F3ED] to-transparent" />
+        {/* Gradiente en Móvil: Transición suave hacia abajo sin tapar ni nublar el rostro */}
+        <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-transparent via-[#F6F3ED]/15 to-[#F6F3ED] pointer-events-none" />
+
+        {/* Gradiente en Desktop: Sombreado difuminado ultra suave (sin cortes ni rayas rectas) */}
+        <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#F6F3ED] from-15% via-[#F6F3ED]/75 via-35% to-transparent to-58% pointer-events-none" />
+
+        {/* Fusión hacia la barra inferior de pilares */}
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#F6F3ED] to-transparent pointer-events-none" />
       </div>
 
       {/* =========================================================================
-          CONTENIDO EDITORIAL (RESPONSIVO PARA CELULARES Y COMPUTADORAS)
-          En celular el video se luce nítido y completo sin recortes ni textos encima
+          CONTENIDO EDITORIAL (CON ESPACIADO ELEGANTE Y LEGIBILIDAD ÓPTIMA)
+          En móvil: mt-[26vh] sm:mt-[30vh] baja el contenido hacia el Círculo 2 para
+          dejar el rostro completamente libre y despejado en el Círculo 1.
+          En desktop: lg:mt-0 lg:my-auto mantiene el centrado vertical perfecto a la izquierda.
           ========================================================================= */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 w-full z-10 py-8 sm:py-12 lg:py-0">
-        <div className="max-w-xl lg:max-w-lg space-y-4 sm:space-y-6 text-left">
-          
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 w-full z-10 pt-2 pb-6 sm:pb-8 lg:py-10 mt-[26vh] sm:mt-[30vh] lg:mt-0 lg:my-auto">
+        <div className="max-w-xl lg:max-w-lg space-y-3.5 sm:space-y-6 text-left">
+
           {/* Eyebrow / Categoría Superior */}
-          <p className="text-[10px] sm:text-xs tracking-[0.25em] uppercase text-[#8C7A65] font-semibold">
-            ATENCIÓN PROFESIONAL · RESULTADOS NATURALES
-          </p>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#D4AF37]/40 text-[#8C7A65] text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase shadow-xs">
+            <span>ATENCIÓN PROFESIONAL · RESULTADOS NATURALES</span>
+          </div>
 
           {/* Titular Editorial en Serif Grande */}
           <div className="space-y-1">
@@ -53,35 +104,11 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
             </h1>
           </div>
 
-          {/* =====================================================================
-              VIDEOPLAYER DESTACADO EN CELULARES (100% NÍTIDO, SIN RECORTES NI TEXTOS ENCIMA)
-              ===================================================================== */}
-          <div className="block lg:hidden relative w-full aspect-[16/10] sm:aspect-video rounded-3xl overflow-hidden shadow-2xl border border-[#D4AF37]/35 my-4 bg-stone-900">
-            <img
-              src="/evyspa_opt.webp"
-              alt="EvyFace · Armonización Facial y Rejuvenecimiento Celular"
-              loading="eager"
-              decoding="sync"
-              className="w-full h-full object-cover object-center select-none pointer-events-none"
-              style={{
-                willChange: "transform",
-                transform: "translate3d(0, 0, 0)",
-                backfaceVisibility: "hidden",
-                WebkitBackfaceVisibility: "hidden",
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] text-white/95 bg-black/50 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20">
-              <span className="font-medium tracking-wide">Armonización Facial &amp; Celular</span>
-              <span className="text-[#F3E5AB] font-bold">EvyFace</span>
-            </div>
-          </div>
-
           {/* Línea Divisoria Sutil */}
           <div className="w-12 h-[1.5px] bg-[#B0977B]" />
 
           {/* Párrafo Descriptivo Breve y Elegante */}
-          <p className="text-xs sm:text-base text-[#5C544B] leading-relaxed font-light max-w-md">
+          <p className="text-xs sm:text-base text-[#4A423A] leading-relaxed font-normal max-w-md">
             Tratamientos personalizados de armonización facial con Toxina Botulínica, Ácido Hialurónico y Sueroterapia celular. Contamos con profesionales certificados para devolver la luminosidad y vitalidad natural a tu rostro.
           </p>
 
@@ -98,19 +125,52 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* =========================================================================
-          SELLO MONOGRAMA CIRCULAR EN LA ESQUINA INFERIOR DERECHA (EN DESKTOP)
-          ========================================================================= */}
-      <div className="hidden lg:flex absolute bottom-8 right-12 w-28 h-28 rounded-full border border-white/70 backdrop-blur-[2px] flex-col items-center justify-center text-white/90 text-center select-none pointer-events-none z-10 shadow-sm">
-        <span className="text-[7.5px] tracking-[0.28em] uppercase font-light text-white/80">
+      {/* Monograma EF en Desktop (Ubicado en la parte superior derecha) */}
+      <div className="hidden lg:flex absolute top-32 right-12 w-28 h-28 rounded-full border border-white/70 bg-black/15 backdrop-blur-[2px] flex-col items-center justify-center text-white text-center select-none pointer-events-none z-10 shadow-sm">
+        <span className="text-[7.5px] tracking-[0.28em] uppercase font-light text-white/90">
           SCIENTIFIC CARE
         </span>
         <span className="font-editorial text-3xl font-light my-[-3px] text-white">
           EF
         </span>
-        <span className="text-[7.5px] tracking-[0.28em] uppercase font-light text-white/80">
+        <span className="text-[7.5px] tracking-[0.28em] uppercase font-light text-white/90">
           NATURAL BEAUTY
         </span>
+      </div>
+
+      {/* =========================================================================
+          LOS 5 PILARES DE CONFIANZA INTEGRADOS EN LA BASE DE LA SECCIÓN DE INICIO
+          ========================================================================= */}
+      <div className="relative z-10 w-full border-t border-[#D4AF37]/25 bg-white/80 backdrop-blur-md py-6 sm:py-7 mt-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 items-start">
+            {pillars.map((pillar, index) => {
+              const Icon = pillar.icon;
+              const isLastOnMobile = index === 4;
+              return (
+                <div
+                  key={index}
+                  className={`flex items-start gap-2.5 sm:gap-3.5 text-left group ${isLastOnMobile ? "col-span-2 md:col-span-1" : ""}`}
+                >
+                  {/* Icono con trazo fino dorado */}
+                  <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-white border border-[#D4AF37]/35 shadow-xs flex-shrink-0 flex items-center justify-center text-[#B89326] group-hover:scale-105 group-hover:border-[#D4AF37] transition-all duration-300">
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 stroke-[1.5]" />
+                  </div>
+
+                  {/* Textos */}
+                  <div className="space-y-0.5">
+                    <h4 className="text-[10px] sm:text-xs font-bold tracking-[0.12em] sm:tracking-[0.14em] uppercase text-[#1A1A1A] leading-snug">
+                      {pillar.title}
+                    </h4>
+                    <p className="text-[9.5px] sm:text-[11px] text-[#6A665E] leading-normal font-light">
+                      {pillar.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
     </section>

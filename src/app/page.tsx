@@ -4,7 +4,6 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import InteractiveParticles from "@/components/InteractiveParticles";
 import HeroSection from "@/components/HeroSection";
-import TrustBar from "@/components/TrustBar";
 import PopularTreatments from "@/components/PopularTreatments";
 import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
@@ -34,11 +33,8 @@ export default function Home() {
       {/* 1. Header de Navegación Flotante (Inicio, Tratamientos, Nosotros, Contacto) */}
       <Navbar onOpenBooking={() => handleOpenBooking("Valoración Médica Integral")} />
 
-      {/* 2. Sección de Inicio (Hero con evyspa.webp en el fondo) */}
+      {/* 2. Sección de Inicio (Hero con evyspa.webp + 5 Pilares de Confianza Integrados) */}
       <HeroSection onOpenBooking={() => handleOpenBooking("Valoración Médica Integral")} />
-
-      {/* Barra de Confianza & Pilares de Valor (Transición armónica idéntica a la referencia) */}
-      <TrustBar />
 
       {/* 3. Sección de Tratamientos (Con evydosspa.webp en el fondo a pantalla completa) */}
       <PopularTreatments onSelectTreatment={(treatment) => handleOpenBooking(treatment)} />

@@ -44,7 +44,7 @@ export default function FloatingWhatsApp() {
           </div>
 
           <a
-            href="https://wa.me/51999999999?text=Hola%20EvyFace,%20deseo%20coordinar%20una%20cita%20con%20sus%20profesionales."
+            href="https://wa.me/51956488490?text=Hola%20EvyFace,%20deseo%20coordinar%20una%20cita%20con%20sus%20profesionales."
             target="_blank"
             rel="noopener noreferrer"
             className="w-full py-2 px-3 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-semibold flex items-center justify-center gap-1.5 shadow transition-colors"
